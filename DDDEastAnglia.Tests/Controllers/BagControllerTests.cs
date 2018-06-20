@@ -13,7 +13,7 @@ namespace DDDEastAnglia.Tests.Controllers
         public void Order_Number_Not_For_DDDEA_Returns_Same_View()
         {
             BagController controller = new BagController();
-            BagIndexViewModel model = new BagIndexViewModel();
+            BagIndexViewModel model = new BagIndexViewModel {OrderNumber = "1234567890"};
             var result = controller.Index(model);
             Assert.That(((ViewResult)result).ViewName, Is.EqualTo("Index"));
         }
