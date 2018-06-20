@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using DDDEastAnglia.Models;
 
 namespace DDDEastAnglia.Controllers
 {
@@ -6,6 +7,12 @@ namespace DDDEastAnglia.Controllers
     {
         // GET
         public ActionResult Index()
+        {
+            return View("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Index(BagIndexViewModel model)
         {
             return View("Index");
         }
