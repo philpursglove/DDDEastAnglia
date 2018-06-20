@@ -230,6 +230,7 @@
     <Compile Include="Areas\Admin\Models\VotesPerDateViewModel.cs" />
     <Content Include="Content\common.css" />
     <Compile Include="Areas\Admin\Models\VotesPerDayViewModel.cs" />
+    <Compile Include="Controllers\BagController.cs" />
     <Compile Include="Controllers\GravatarController.cs" />
     <Compile Include="Controllers\IViewModelQuery.cs" />
     <Compile Include="Controllers\SponsorController.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="DataAccess\ISpeakerRepository.cs" />
     <Compile Include="DataAccess\ISponsorRepository.cs" />
     <Compile Include="DataAccess\DefaultSponsorSorter.cs" />
+    <Compile Include="Models\BagIndexViewModel.cs" />
     <Compile Include="Models\RegisteredModel.cs" />
     <Compile Include="Models\SponsorLogo.cs" />
     <Compile Include="Helpers\ImageResizeExtensions.cs" />
@@ -693,6 +695,7 @@
     <Content Include="Views\Home\Closed.cshtml" />
     <Content Include="Views\Home\Sponsors.cshtml" />
     <Content Include="Views\Home\CodeOfConduct.cshtml" />
+    <Content Include="Views\Bag\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
