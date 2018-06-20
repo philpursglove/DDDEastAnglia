@@ -14,7 +14,7 @@ namespace DDDEastAnglia.Tests.Controllers
         {
             BagController controller = new BagController();
             BagIndexViewModel model = new BagIndexViewModel();
-            var result = controller.Index();
+            var result = controller.Index(model);
             Assert.That(((ViewResult)result).ViewName, Is.EqualTo("Index"));
         }
     }
