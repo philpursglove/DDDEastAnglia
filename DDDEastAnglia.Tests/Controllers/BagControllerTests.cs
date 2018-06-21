@@ -1,6 +1,8 @@
 ﻿using System.Web.Mvc;
 using DDDEastAnglia.Controllers;
+using DDDEastAnglia.Helpers;
 using DDDEastAnglia.Models;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace DDDEastAnglia.Tests.Controllers
@@ -12,10 +14,24 @@ namespace DDDEastAnglia.Tests.Controllers
         [Test]
         public void Order_Number_Not_For_DDDEA_Returns_Same_View()
         {
-            BagController controller = new BagController();
+            ITicketProvider ticketProvider = Substitute.For<ITicketProvider>();
+            ticketProvider.TicketIsForOurEvent("1234567890").Returns(false);
+            BagController controller = new BagController(ticketProvider);
             BagIndexViewModel model = new BagIndexViewModel {OrderNumber = "1234567890"};
             var result = controller.Index(model);
             Assert.That(((ViewResult)result).ViewName, Is.EqualTo("Index"));
         }
+
+        [Test]
+        public void Order_Number_For_DDDEA_Returns_Contents_View()
+        {
+            ITicketProvider ticketProvider = Substitute.For<ITicketProvider>();
+            ticketProvider.TicketIsForOurEvent("1234567890").Returns(true);
+            BagController controller = new BagController(ticketProvider);
+            BagIndexViewModel model = new BagIndexViewModel { OrderNumber = "1234567890" };
+            var result = controller.Index(model);
+            Assert.That(result, Is.TypeOf<RedirectToRouteResult>());
+        }
+
     }
 }
