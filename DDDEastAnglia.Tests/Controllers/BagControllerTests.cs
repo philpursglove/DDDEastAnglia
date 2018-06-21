@@ -82,5 +82,18 @@ namespace DDDEastAnglia.Tests.Controllers
             var result = controller.Contents();
             Assert.That(result, Is.TypeOf<RedirectToRouteResult>());
         }
+
+        [Test]
+        public void Order_Number_For_DDDEA_Sets_The_SessionState()
+        {
+            ticketProvider.TicketIsForOurEvent("1234567890").Returns(true);
+            BagController controller = new BagController(ticketProvider);
+            ControllerContext controllerContext = new ControllerContext(contextBase, new RouteData(), controller);
+            controller.ControllerContext = controllerContext;
+            BagIndexViewModel model = new BagIndexViewModel { OrderNumber = "1234567890" };
+            controller.Index(model);
+            Assert.That(sessionStateBase["ValidatedTicket"], Is.True);
+        }
+
     }
 }

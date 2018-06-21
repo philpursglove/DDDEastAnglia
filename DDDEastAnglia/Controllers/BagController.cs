@@ -28,6 +28,7 @@ namespace DDDEastAnglia.Controllers
         {
             if (ticketProvider.TicketIsForOurEvent(model.OrderNumber))
             {
+                ControllerContext.HttpContext.Session["ValidatedTicket"] = true;
                 return RedirectToAction("Contents");
             }
             return View("Index");
