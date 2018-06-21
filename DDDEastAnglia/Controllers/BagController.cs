@@ -15,6 +15,11 @@ namespace DDDEastAnglia.Controllers
         // GET
         public ActionResult Index()
         {
+            if ((bool)ControllerContext.HttpContext.Session["ValidatedTicket"])
+            {
+                return RedirectToAction("Contents");
+            }
+
             return View("Index");
         }
 
@@ -30,7 +35,12 @@ namespace DDDEastAnglia.Controllers
 
         public ActionResult Contents()
         {
-            return View();
+            if (!(bool)ControllerContext.HttpContext.Session["ValidatedTicket"])
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(new BagContentsViewModel());
         }
     }
 }
