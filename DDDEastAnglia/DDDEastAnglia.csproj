@@ -243,6 +243,7 @@
     <Compile Include="DataAccess\ISpeakerRepository.cs" />
     <Compile Include="DataAccess\ISponsorRepository.cs" />
     <Compile Include="DataAccess\DefaultSponsorSorter.cs" />
+    <Compile Include="Helpers\ITicketProvider.cs" />
     <Compile Include="Models\BagIndexViewModel.cs" />
     <Compile Include="Models\RegisteredModel.cs" />
     <Compile Include="Models\SponsorLogo.cs" />
@@ -696,6 +697,7 @@
     <Content Include="Views\Home\Sponsors.cshtml" />
     <Content Include="Views\Home\CodeOfConduct.cshtml" />
     <Content Include="Views\Bag\Index.cshtml" />
+    <Content Include="Views\Bag\Contents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
