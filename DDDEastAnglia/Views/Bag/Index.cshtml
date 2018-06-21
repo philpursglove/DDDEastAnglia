@@ -1,8 +1,16 @@
-﻿@model dynamic
+﻿@model DDDEastAnglia.Models.BagIndexViewModel
 
 @{
     ViewBag.Title = "Bag";
-    Layout = "~\\Views\\Shared\\_Layout.cshtml";
 }
 
-<h2>title</h2>
+<h2>Virtual Delegate Bag</h2>
+
+Welcome to the @Html.DDDEastAnglia() virtual delegate bag!<br/> Please enter your ticket number:
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.TextBoxFor(m => Model.OrderNumber, new {@class = "form-control"})<br/>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+    </div>
+}
