@@ -37,5 +37,13 @@ namespace DDDEastAnglia.Tests.Controllers
             var result = controller.Index(model);
             Assert.That(result, Is.TypeOf<RedirectToRouteResult>());
         }
+        
+        [Test]
+        public void Contents_View_Returns_BagContents()
+        {
+            BagController controller = new BagController(ticketProvider);
+            ViewResult result = (ViewResult)controller.Contents();
+            Assert.That(result.Model, Is.TypeOf<BagContentsViewModel>());
+        }
     }
 }
