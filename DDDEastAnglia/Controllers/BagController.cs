@@ -15,7 +15,7 @@ namespace DDDEastAnglia.Controllers
         // GET
         public ActionResult Index()
         {
-            if ((bool)ControllerContext.HttpContext.Session["ValidatedTicket"])
+            if (ControllerContext.HttpContext.Session["ValidatedTicket"] != null && (bool)ControllerContext.HttpContext.Session["ValidatedTicket"])
             {
                 return RedirectToAction("Contents");
             }
@@ -36,7 +36,7 @@ namespace DDDEastAnglia.Controllers
 
         public ActionResult Contents()
         {
-            if (!(bool)ControllerContext.HttpContext.Session["ValidatedTicket"])
+            if (!(bool)ControllerContext.HttpContext.Session["ValidatedTicket"] || ControllerContext.HttpContext.Session["ValidatedTicket"] == null)
             {
                 return RedirectToAction("Index");
             }
