@@ -244,6 +244,7 @@
     <Compile Include="DataAccess\ISponsorRepository.cs" />
     <Compile Include="DataAccess\DefaultSponsorSorter.cs" />
     <Compile Include="Helpers\ITicketProvider.cs" />
+    <Compile Include="Models\BagContentsViewModel.cs" />
     <Compile Include="Models\BagIndexViewModel.cs" />
     <Compile Include="Models\RegisteredModel.cs" />
     <Compile Include="Models\SponsorLogo.cs" />
