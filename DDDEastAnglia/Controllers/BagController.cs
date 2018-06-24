@@ -36,7 +36,7 @@ namespace DDDEastAnglia.Controllers
 
         public ActionResult Contents()
         {
-            if (!(bool)ControllerContext.HttpContext.Session["ValidatedTicket"] || ControllerContext.HttpContext.Session["ValidatedTicket"] == null)
+            if (ControllerContext.HttpContext.Session["ValidatedTicket"] == null || !(bool)ControllerContext.HttpContext.Session["ValidatedTicket"])
             {
                 return RedirectToAction("Index");
             }
