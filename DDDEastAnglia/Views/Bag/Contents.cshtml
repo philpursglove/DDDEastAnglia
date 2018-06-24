@@ -1,14 +1,12 @@
-﻿@model dynamic
+﻿@model DDDEastAnglia.Models.BagContentsViewModel
+@{
+    ViewBag.Title = "Delegate Bag Contents";
+}
+<h2>Virtual Delegate Bag</h2>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+@if (!Model.SponsorBagContents.Any())
+{
+    <div class="well">
+        Sorry! There is nothing in the delegate bag right now!
+    </div>
+}
