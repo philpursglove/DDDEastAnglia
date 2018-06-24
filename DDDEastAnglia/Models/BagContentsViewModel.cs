@@ -7,5 +7,11 @@ namespace DDDEastAnglia.Models
 {
     public class BagContentsViewModel
     {
+        public BagContentsViewModel()
+        {
+            SponsorBagContents = new List<SponsorBagContent>();
+        }
+
+        public IEnumerable<SponsorBagContent> SponsorBagContents { get; set; }
     }
 }
