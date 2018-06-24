@@ -248,6 +248,7 @@
     <Compile Include="Models\BagContentsViewModel.cs" />
     <Compile Include="Models\BagIndexViewModel.cs" />
     <Compile Include="Models\RegisteredModel.cs" />
+    <Compile Include="Models\SponsorBagContent.cs" />
     <Compile Include="Models\SponsorLogo.cs" />
     <Compile Include="Helpers\ImageResizeExtensions.cs" />
     <Compile Include="DataAccess\SimpleData\Models\Sponsor.cs" />
