@@ -91,5 +91,14 @@ namespace DDDEastAnglia.Tests.Controllers
             Assert.That(sessionStateBase["ValidatedTicket"], Is.True);
         }
 
+        [Test]
+        public void Order_Number_Must_Be_Entered()
+        {
+            BagController controller = CreateController();
+            BagIndexViewModel model = new BagIndexViewModel { OrderNumber = "" };
+            var result = controller.Index(model);
+            Assert.That(result, Is.TypeOf<ViewResult>());
+            Assert.That(((ViewResult)result).ViewName, Is.EqualTo("Index"));
+        }
     }
 }
