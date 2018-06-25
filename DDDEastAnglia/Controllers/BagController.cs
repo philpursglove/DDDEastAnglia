@@ -26,12 +26,20 @@ namespace DDDEastAnglia.Controllers
         [HttpPost]
         public ActionResult Index(BagIndexViewModel model)
         {
-            if (ticketProvider.TicketIsForOurEvent(model.OrderNumber))
+            if (ModelState.IsValid)
             {
-                ControllerContext.HttpContext.Session["ValidatedTicket"] = true;
-                return RedirectToAction("Contents");
+                if (ticketProvider.TicketIsForOurEvent(model.OrderNumber))
+                {
+                    ControllerContext.HttpContext.Session["ValidatedTicket"] = true;
+                    return RedirectToAction("Contents");
+                }
+                model.ErrorMessage = "Sorry, this is not a valid order for DDD East Anglia";
             }
-            return View("Index");
+            if (string.IsNullOrEmpty(model.OrderNumber))
+            {
+                model.ErrorMessage = "You must enter an order number";
+            }
+            return View("Index", model);
         }
 
         public ActionResult Contents()

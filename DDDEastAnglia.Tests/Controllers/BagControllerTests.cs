@@ -100,5 +100,24 @@ namespace DDDEastAnglia.Tests.Controllers
             Assert.That(result, Is.TypeOf<ViewResult>());
             Assert.That(((ViewResult)result).ViewName, Is.EqualTo("Index"));
         }
+
+        [Test]
+        public void When_The_Order_Number_Is_Not_Entered_Display_An_Error_Message()
+        {
+            BagController controller = CreateController();
+            BagIndexViewModel model = new BagIndexViewModel { OrderNumber = "" };
+            var result = ((ViewResult)controller.Index(model)).Model;
+            Assert.That(model.ErrorMessage, Is.EqualTo("You must enter an order number"));
+        }
+
+        [Test]
+        public void When_The_Order_Number_Is_Not_For_DDDEA_Display_An_Error_Message()
+        {
+            ticketProvider.TicketIsForOurEvent("1234567890").Returns(false);
+            BagController controller = CreateController();
+            BagIndexViewModel model = new BagIndexViewModel { OrderNumber = "1234567890" };
+            controller.Index(model);
+            Assert.That(model.ErrorMessage, Is.EqualTo("Sorry, this is not a valid order for DDD East Anglia"));
+        }
     }
 }

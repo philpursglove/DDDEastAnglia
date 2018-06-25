@@ -6,5 +6,8 @@ namespace DDDEastAnglia.Models
     {
         [Required]
         public string OrderNumber { get; set; }
+
+
+        public string ErrorMessage { get; set; }
     }
 }
