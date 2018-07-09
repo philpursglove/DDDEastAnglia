@@ -11,7 +11,7 @@ namespace DDDEastAnglia.Helpers
         public bool TicketIsForOurEvent(string ticketNumber)
         {
             string eventBriteApiKey = new WebConfigurationAppSettingsProvider().GetSetting("EventbriteOAuthToken");
-            string eventHashValue = "1c67b45e0cb0f83e2e5f39ca9261701edabb36ea24c0125bf11d477600dcbe1e";
+            const string eventHashValue = "1c67b45e0cb0f83e2e5f39ca9261701edabb36ea24c0125bf11d477600dcbe1e";
             using (WebClient webClient = new WebClient())
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
