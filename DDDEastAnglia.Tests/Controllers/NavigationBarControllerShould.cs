@@ -235,6 +235,18 @@ namespace DDDEastAnglia.Tests.Controllers
             Assert.IsTrue(agendaLink.IsVisible);
         }
 
+
+        [Test]
+        public void SetTheBagLinkToVisible_WhenTheEventReportsThatTheBagIsAvailable()
+        {
+            var controller = CreateController(conference => conference.CanShowBag().Returns(true));
+
+            var result = controller.RenderMenu();
+
+            var bagLink = FindLink(result, "Bag");
+            Assert.That(bagLink.IsVisible);
+        }
+
         private NavigationMenuLinkViewModel FindLink(ActionResult result, string linkText)
         {
             var partialResult =(PartialViewResult) result;
