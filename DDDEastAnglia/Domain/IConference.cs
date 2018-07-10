@@ -19,5 +19,7 @@
         bool CanShowSpeakers();
         bool IsPreview();
         bool IsClosed();
+
+        bool CanShowBag();
     }
 }
