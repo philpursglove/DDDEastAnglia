@@ -116,5 +116,10 @@ namespace DDDEastAnglia.Domain
                 ? calendarEntry
                 : new NullCalendarEntry();
         }
+
+        public bool CanShowBag()
+        {
+            return !IsClosed() && GetCalendarEntry(CalendarEntryType.Conference).HasPassed();
+        }
     }
 }
