@@ -214,6 +214,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\Controllers\BagController.cs" />
     <Compile Include="Areas\Admin\Controllers\SpeakerController.cs" />
     <Compile Include="App_Start\Filters\AllowedWhenConferenceIsInPreviewAttribute.cs" />
     <Compile Include="App_Start\Filters\AllowedWhenConferenceIsClosedAttribute.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="Helpers\EventbriteTicketProvider.cs" />
     <Compile Include="Helpers\ITicketProvider.cs" />
     <Compile Include="Models\BagContentsViewModel.cs" />
+    <Compile Include="Models\BagFile.cs" />
     <Compile Include="Models\BagIndexViewModel.cs" />
     <Compile Include="Models\RegisteredModel.cs" />
     <Compile Include="Models\SponsorBagContent.cs" />
@@ -611,6 +613,7 @@
     <Content Include="Areas\Admin\Views\Sponsor\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Sponsor\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sponsor\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Bag\Index.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\html5shiv-printshiv.js" />

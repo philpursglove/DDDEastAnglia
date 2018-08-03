@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Bag";
+}
+
+Bag contents
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Sponsor
+        </th>
+        <th>
+            Text
+        </th>
+        <th>
+            Files
+        </th>
+        <th></th>
+    </tr>
+    
+    @foreach (var SponsorBagContent in Model)
+    {
+        <tr>
+            <td>
+                Sponsor name
+            </td>
+            <td>
+                Text excerpt
+            </td>
+            <td>
+                Count of files
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Bag")">Edit</a>&nbsp;
+                <a href="@Url.Action("Delete", "Bag")">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
