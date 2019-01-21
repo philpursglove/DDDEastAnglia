@@ -1,8 +1,4 @@
-﻿@{
-    ViewBag.Title = "Bag";
-}
-
-Bag contents
+﻿@model IEnumerable<DDDEastAnglia.Areas.Admin.Models.SponsorBagContentViewModel>
 
 <table class="table table-striped">
     <tr>
@@ -31,8 +27,8 @@ Bag contents
                 Count of files
             </td>
             <td>
-                <a href="@Url.Action("Edit", "Bag")">Edit</a>&nbsp;
-                <a href="@Url.Action("Delete", "Bag")">Delete</a>
+                <a href="@Url.Action("Edit", "Bag", new { id = SponsorBagContent.ContentId} )">Edit</a>&nbsp;
+                <a href="@Url.Action("Delete", "Bag", new { id = SponsorBagContent.ContentId})">Delete</a>
             </td>
         </tr>
     }

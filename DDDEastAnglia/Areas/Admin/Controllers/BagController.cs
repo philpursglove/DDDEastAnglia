@@ -12,7 +12,7 @@ namespace DDDEastAnglia.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            
+            return View();
         }
 
         [HttpPost]
@@ -20,11 +20,23 @@ namespace DDDEastAnglia.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                return RedirectToAction("Index");
             }
+            return View(model);
         }
 
         public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(SponsorBagContent model)
         {
             
         }

@@ -224,8 +224,10 @@
     <Compile Include="App_Start\Filters\FilterProvider.cs" />
     <Compile Include="App_Start\Filters\PreviewFilterProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\SponsorController.cs" />
+    <Compile Include="Areas\Admin\Models\AddSponsorContentViewModel.cs" />
     <Compile Include="Areas\Admin\Models\MenuViewModel.cs" />
     <Compile Include="Areas\Admin\Models\SpeakerModel.cs" />
+    <Compile Include="Areas\Admin\Models\SponsorBagContentViewModel.cs" />
     <Compile Include="Areas\Admin\Models\SponsorModel.cs" />
     <Compile Include="Areas\Admin\Models\VotersPerIPAddressViewModel.cs" />
     <Compile Include="Areas\Admin\Models\VotesPerDateViewModel.cs" />
@@ -614,6 +616,9 @@
     <Content Include="Areas\Admin\Views\Sponsor\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sponsor\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Bag\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bag\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Bag\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Bag\Add.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\html5shiv-printshiv.js" />

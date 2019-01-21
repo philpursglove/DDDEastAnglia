@@ -1,0 +1,16 @@
+﻿@model DDDEastAnglia.Areas.Admin.Models.AddSponsorContentViewModel
+
+@using (Html.BeginForm("Add"))
+{
+    <div class="row">
+        Sponsor: @Html.DropDownListFor(m => m.SponsorId, Model.Sponsors)
+        @Html.ValidationMessageFor(m => m.SponsorId)
+    </div>
+    <div class="row">
+        Sponsor Text: @Html.TextAreaFor(m => m.Text)
+        @Html.ValidationMessageFor(m => m.Text)
+    </div>
+
+    <input type="submit" value="Save" class="btn btn-primary" /> 
+    <a href="@Url.Action("Index", "Bag")" class="btn" role="button">Cancel</a>
+}
