@@ -41,10 +41,12 @@ namespace DDDEastAnglia.Controllers
 
             var allSessions = new List<SessionDisplayModel>();
 
+            bool showSpeaker = conference.CanShowSpeakers();
+
             foreach (var session in sessions)
             {
                 var profile = speakersLookup[session.SpeakerUserName];
-                var displayModel = CreateDisplayModel(session, profile);
+                var displayModel = CreateDisplayModel(session, profile, showSpeaker);
                 allSessions.Add(displayModel);
             }
 
@@ -69,7 +71,11 @@ namespace DDDEastAnglia.Controllers
             }
 
             var userProfile = userProfileRepository.GetUserProfileByUserName(session.SpeakerUserName);
-            var displayModel = CreateDisplayModel(session, userProfile);
+
+            var conference = conferenceLoader.LoadConference();
+            bool showSpeaker = conference.CanShowSpeakers();
+
+            var displayModel = CreateDisplayModel(session, userProfile, showSpeaker);
 
             if (session.SessionId == 2174)
             {
@@ -191,7 +197,7 @@ namespace DDDEastAnglia.Controllers
             }
 
             var userProfile = userProfileRepository.GetUserProfileByUserName(session.SpeakerUserName);
-            var displayModel = CreateDisplayModel(session, userProfile);
+            var displayModel = CreateDisplayModel(session, userProfile, true);
             return View(displayModel);
         }
 
@@ -211,7 +217,7 @@ namespace DDDEastAnglia.Controllers
             return RedirectToAction("Index");
         }
 
-        private SessionDisplayModel CreateDisplayModel(Session session, UserProfile profile)
+        private SessionDisplayModel CreateDisplayModel(Session session, UserProfile profile, bool showSpeaker)
         {
             var isUsersSession = Request.IsAuthenticated && session.SpeakerUserName == User.Identity.Name;
             var tweetLink = CreateTweetLink(isUsersSession, session.Title,
@@ -236,7 +242,8 @@ namespace DDDEastAnglia.Controllers
                     },
 
                     TweetLink = tweetLink,
-                    IsUsersSession = isUsersSession
+                    IsUsersSession = isUsersSession,
+                    ShowSpeaker = showSpeaker
                 };
             return displayModel;
         }
